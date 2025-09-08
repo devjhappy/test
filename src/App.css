@@ -1,0 +1,332 @@
+/* === 커스텀 폰트 등록 === */
+@font-face {
+  font-family: "customFont";  /* 폰트 이름 */
+  src: url("./assets/fonts/custom_default.ttf") format("truetype");
+  font-weight: 100 900;   /* 가변 폰트면 범위, 일반 폰트면 400 등으로 */
+  font-style: normal;
+  font-display: swap;     /* 로딩 중 시스템 폰트로 먼저 보여주기 */
+}
+
+body {
+  margin: 0;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  background-color: #fffefd;
+  color: #333;
+}
+
+.custom-header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 홈일 때 */
+.custom-header.home {
+  background-color: white;
+}
+
+.header-text.home {
+  color: #7E5800;
+}
+
+/* 다른 페이지일 때 */
+.custom-header.default {
+  background-color: #55382A;
+}
+
+.header-text.default {
+  color: white;
+}
+
+h1, h2, h3 {
+  color: #5a3e2b;
+}
+
+.banner-image {
+  width: 500px;
+  height: auto; /* 비율 유지 */
+}
+
+button {
+  padding: 10px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 12px;
+  background-color: #67C6DC;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 3px rgba(0,0,0,0.2);
+}
+
+/* 마우스 올릴 때: 살짝 떠오름 + 색상 변경 */
+button:hover {
+  background-color: #5bb3c8; /* 조금 더 진한 블루 */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* 더 부드럽고 입체감 있는 그림자 */
+  transform: translateY(-2px); /* 살짝 위로 올라감 */
+}
+
+/* 누를 때: 눌린 느낌 */
+button:active {
+  background-color: #48a3b4; /* 눌렸을 때 색상 */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25); /* 눌리면서 그림자 작아짐 */
+  transform: translateY(2px); /* 아래로 눌림 */
+}
+
+img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.container {
+  margin: auto;
+  padding: 20px;
+  font-family: "customFont", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+}
+
+.aboutus-container {
+  padding: 10px !important;
+  max-width: 100% !important;
+}
+
+.app-wrapper {
+  margin: 10px auto;
+  padding: 0 10px;
+  max-width: 100%;
+  box-sizing: border-box;
+  font-family: "customFont", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+}
+
+/* 홈 페이지 */
+.home-container {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.home-container button {
+  display: block;
+  width: 80%;
+  margin: 10px auto;
+}
+
+/* 카드 및 그리드 */
+.card {
+  background: white;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 12px; 
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  margin: 12px 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px); /* 살짝 떠오르는 효과 */
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+}
+
+/* 선물 선택 */
+.present-container {
+  text-align: center;
+  padding: 30px;
+}
+
+.options button {
+  margin: 10px;
+}
+
+/* 편지 */
+.letter-page {
+  padding: 30px;
+}
+
+.letter-box {
+  background-color: #fff8e7;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e4d1b9;
+  font-size: 16px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.card img {
+  object-fit: cover;
+  width: 100%;
+}
+
+.card-img-top {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px 12px 0 0;
+}
+
+/* === 카드 이미지 영역 === */
+.card-img-top {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  flex-shrink: 0;
+  border-radius: 12px 12px 0 0;
+}
+
+/* === 카드 텍스트 영역 === */
+.card-body {
+  flex: none;
+  height: 60px; /* 고정 */
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 0.9rem;
+  text-align: start;
+}
+
+.card-text {
+  margin: 0;
+  font-size: 0.7rem;
+  text-align: end;
+}
+
+.aboutus-container {
+  padding: 10px !important;
+  max-width: 100% !important;
+}
+
+/* ===================== */
+/* 📌 다이얼로그 (Modal) */
+/* ===================== */
+
+/* 모달 기본 */
+/* dialog는 꽉 차게 */
+.gallery-dialog .modal-dialog {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+
+/* 내부 카드에 폭 제한 */
+.custom-gallery-card {
+  max-width: 768px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px;
+  border-radius: 16px;
+  background-color: #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+
+.gallery-dialog .modal-content {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  font-family: "customFont", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+}
+
+/* 카드 스타일 (항상 세로 배치) */
+.custom-gallery-card {
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  max-height: 90vh;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* 제목 + 날짜 */
+.card-header-row h5 {
+  font-size: 1.3rem;
+}
+
+.card-header-row span {
+  font-size: 0.9rem;
+  color: #999;
+}
+
+/* 이미지 영역 */
+.card-image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-image-wrapper img.dialog-image {
+  width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* 편지 */
+.card-letter-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-letter {
+  font-size: 1rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: keep-all;
+  overflow-y: auto;
+}
+
+/* 버튼 */
+.modal-footer button,
+.custom-gallery-card button {
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 1rem;
+}
+
+/* ===================== */
+/* 💻 큰 화면에서 넓이 조정만 */
+/* ===================== */
+
+@media (min-width: 1200px) {
+  .gallery-dialog .modal-dialog {
+    max-width: 880px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .gallery-dialog .modal-dialog {
+    max-width: 1100px;
+  }
+
+  .custom-gallery-card {
+    padding: 40px;
+    gap: 32px;
+  }
+
+  .card-image-wrapper img.dialog-image {
+    max-height: 500px;
+  }
+
+  .card-letter {
+    font-size: 1.2rem;
+  }
+}
