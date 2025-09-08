@@ -1,0 +1,1 @@
+{"name":"test-app","short_name":"Test","description":"앱 테스트","start_url":"/test/","display":"standalone","background_color":"#ffffff","theme_color":"#7E5800","lang":"en","scope":"/test/","diaply":"standalone","icons":[{"src":"img/image2.png","sizes":"192x192","type":"img/png"},{"src":"img/image3.png","sizes":"512x512","type":"image/png"}]}
