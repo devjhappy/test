@@ -73,7 +73,14 @@ function AboutUs() {
             }}
           >
             {/* ✕ 닫기 버튼 */}
-            <div className="d-flex justify-content-end sticky-top z-3" style={{ background: 'none' }}>
+            <div
+              className="position-sticky top-0 d-flex justify-content-end z-3"
+              style={{
+                background: 'none',
+                paddingTop: '8px',
+                paddingRight: '8px',
+              }}
+            >
               <Button
                 variant="light"
                 onClick={handleClose}
@@ -82,6 +89,7 @@ function AboutUs() {
                   width: '32px',
                   height: '32px',
                   padding: 0,
+                  boxShadow: '0 0 4px rgba(0,0,0,0.15)',
                 }}
               >
                 ✕
@@ -109,56 +117,92 @@ function AboutUs() {
                     width: '100%',
                     height: '1px',
                     backgroundImage:
-                      'repeating-linear-gradient(to right, #ccc 0px, #ccc 5px, transparent 5px, transparent 10px)',
+                      'repeating-linear-gradient(to right, #F4C7D0 0px, #F4C7D0 5px, transparent 5px, transparent 15px)',
                   }}
                 />
                 {/* 👤 상단: 프로필 + 제목 + 날짜 */}
-                <div className="d-flex align-items-center mb-3">
-                  {/* 프로필 이미지 or 기본 원형 */}
+                <div
+                  key={idx}
+                  ref={idx === selectedIdx ? scrollRef : null}
+                  className="gallery-card-wrapper mb-0"
+                  style={{
+                    border: '1px solid #FFF5F6',
+                    borderRadius: '12px',
+                    backgroundColor: '#fff',
+                    boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+                    overflow: 'hidden', // ✅ 내부 콘텐츠가 튀어나오지 않게
+                    padding: 0,          // ✅ 카드 외부 여백 제거
+                  }}
+                >
+                  {/* 🎀 상단 헤더 */}
                   <div
+                    className="d-flex align-items-center mb-3 px-3 py-2"
                     style={{
-                      width: '40px',
-                      height: '40px',
-                      borderRadius: '50%',
-                      backgroundColor: '#ddd',
-                      backgroundImage: item.profile ? `url(${item.profile})` : 'none',
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                      flexShrink: 0,
+                      margin: 0, // ✅ mb-3 제거
+                      backgroundColor: '#FFF5F6', // ✅ 카드와 배경 통일
+                      borderBottom: '1px solid #eee', // ✅ 구분선만 아래쪽에
+                      borderRadius: '0px',            // ✅ 모서리 둥글기 제거
                     }}
-                  />
-                  <div className="ms-3">
-                    <div className="fw-bold">{item.title}</div>
-                    <div className="text-muted small">{item.date}</div>
+                  >
+                    {/* 프로필 이미지 */}
+                    <div
+                      style={{
+                        width: '40px',
+                        height: '40px',
+                        borderRadius: '50%',
+                        backgroundColor: '#ddd',
+                        backgroundImage: item.profile ? `url(${item.profile})` : 'none',
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        flexShrink: 0,
+                      }}
+                    />
+                    <div className="ms-3">
+                      <div className="fw-bold">{item.title}</div>
+                      <div className="text-muted small">{item.date}</div>
+                    </div>
+                  </div>
+                    
+                  {/* 🖼 이미지 + 편지 내용 */}
+                  <div className="px-3 pt-3 pb-2">
+                    {item.images && item.images.length > 0 && (
+                      <div className="image-grid mb-3">
+                        <Row xs={4} sm={4} md={5} className="g-2">
+                          {item.images.map((imgSrc, i) => (
+                            <Col key={i}>
+                              <div
+                                className="bg-white shadow-sm p-1 rounded"
+                                style={{
+                                  border: '1px solid #eee',
+                                  borderRadius: '12px',         // 카드 둥글게
+                                  overflow: 'hidden',           // 내부 이미지 넘침 방지
+                                  aspectRatio: '1 / 1' // 정사각형 비율 유지
+                                }}
+                              >
+                                <img
+                                  src={imgSrc}
+                                  alt={`img-${i}`}
+                                  className="img-fluid"
+                                  style={{
+                                    objectFit: 'cover',
+                                    height: '100px',
+                                    width: '100%',
+                                    borderRadius: '8px',        // 이미지도 둥글게 (선택)
+                                  }}
+                                />
+                              </div>
+                            </Col>
+                          ))}
+                        </Row>
+                      </div>
+                    )}
+
+                    {/* 💌 편지 내용 */}
+                    <p className="text-body" style={{ whiteSpace: 'pre-line' }}>
+                      {item.letter}
+                    </p>
                   </div>
                 </div>
-
-                {/* 🖼 이미지들 (Row + Col 구성) */}
-                {item.images && item.images.length > 0 && (
-                  <div className="image-grid mb-3">
-                    <Row xs={3} sm={4} md={5} className="g-2">
-                      {item.images.map((imgSrc, i) => (
-                        <Col key={i}>
-                          <img
-                            src={imgSrc}
-                            alt={`img-${i}`}
-                            className="img-fluid rounded"
-                            style={{
-                              objectFit: 'cover',
-                              height: '100px',
-                              width: '100%',
-                            }}
-                          />
-                        </Col>
-                      ))}
-                    </Row>
-                  </div>
-                )}
-
-                {/* 📝 편지 내용 */}
-                <p className="text-body" style={{ whiteSpace: 'pre-line' }}>
-                  {item.letter}
-                </p>
               </div>
             ))}
           </Modal.Body>
