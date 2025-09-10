@@ -9,7 +9,7 @@
 
 body {
   margin: 0;
-  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-family: "customFont", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
   background-color: #fffefd;
   color: #333;
 }
@@ -217,6 +217,7 @@ img {
 /* dialog는 꽉 차게 */
 .gallery-dialog {
   max-width: 600px;
+  font-family: "customFont", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
 }
 
 .custom-gallery-card::-webkit-scrollbar {
