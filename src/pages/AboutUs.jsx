@@ -150,10 +150,11 @@ function AboutUs() {
                         width: '40px',
                         height: '40px',
                         borderRadius: '50%',
-                        backgroundColor: '#ddd',
-                        backgroundImage: item.profile ? `url(${item.profile})` : 'none',
+                        backgroundImage: item.icon ? `url(${item.icon})` : 'none',
+                        backgroundColor: 'transparent',        // 🔧 배경 없음
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat',
                         flexShrink: 0,
                       }}
                     />

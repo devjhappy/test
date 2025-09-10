@@ -1,5 +1,6 @@
 export const gallery = [
   {
+    icon: 'img/hi.png',
     thumbnail: 'img/image1.png',
     images: ['img/image1.png', 'img/image2.png'],
     title: '웃는 우리',
@@ -10,6 +11,7 @@ export const gallery = [
 hello`
   },
   {
+    icon: 'img/happy1.png',
     thumbnail: 'img/image2.png',
     images: ['img/image2.png', 'img/image3.png'],
     title: '행복한 하루',
@@ -20,6 +22,7 @@ hello`
 hello`
   },
   {
+    icon: 'img/heart1.png',
     thumbnail: 'img/image3.png',
     images: ['img/image1.png', 'img/image2.png', 'img/image3.png'],
     title: '기념일 데이트',
@@ -30,6 +33,7 @@ hello`
 hello`
   },
   {
+    icon: 'img/hi.png',
     thumbnail: 'img/image3.png',
     images: ['img/image2.png', 'img/image3.png'],
     title: '웃음 가득한 날',
@@ -40,6 +44,7 @@ hello`
 hello`
   },
   {
+    icon: 'img/movie.png',
     thumbnail: 'img/image1.png',
     images: ['img/image2.png', 'img/image3.png'],
     title: '주말 여행',
@@ -50,6 +55,7 @@ hello`
 hello`
   },
   {
+    icon: 'img/angry.png',
     thumbnail: 'img/image2.png',
     images: ['img/image1.png', 'img/image3.png'],
     title: '이 순간',
