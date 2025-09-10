@@ -37,7 +37,7 @@ function Home() {
 
   return (
     <div className="home-container">
-      <img src="img/banner.png" className="banner-image" />
+      { <img src="img/banner.png" className="banner-image" /> }
       <p
         style={{
           whiteSpace: 'pre-line',

@@ -6,7 +6,7 @@ function PhotoGrid({ data }) {
       {data.map((item, index) => (
         <Card
           key={index}
-          image={item.image}
+          image={item.thumbnail}
           title={item.title}
           description={item.description}
         />

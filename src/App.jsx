@@ -7,6 +7,12 @@ import Present from './pages/Present';
 import Letter from './pages/Letter';
 import Header from './components/Header';
 
+const ITEMS = Array.from({ length: 22 }).map((_, i) => ({
+  id: `item-${i + 1}`,
+  date: i < 8 ? "23.02.11" : "", // 초반에만 날짜 표시
+  title: `카드 ${i + 1}`,
+}));
+
 function App() {
   return (
     <>
